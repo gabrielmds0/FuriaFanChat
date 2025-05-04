@@ -7,12 +7,7 @@ const Header = ({ toggleSidebar, nextMatch }) => {
       {/* Parte esquerda - Logo e nome */}
       <div className="flex items-center p-2">
         <div className="overflow-hidden h-16 w-auto">
-          <img 
-            src='src/assets/furia.png' 
-            alt='FURIA logo' 
-            className="h-16 w-auto max-w-none transform scale-125 object-cover ml-15"
-            style={{ objectPosition: "center" }}
-          />
+        
         </div>
       </div>
       
