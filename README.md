@@ -1,99 +1,41 @@
-# 🐱‍👤 FURIA Fan Chat
-Desafio Técnico – FURIA Tech | Challenge #1: Experiência Conversacional
-Um chat interativo para fãs do time de CS da FURIA, desenvolvido como parte do processo seletivo para a vaga de Assistente de Engenharia de Software.
-![image](https://github.com/user-attachments/assets/93461785-bbd7-4ae1-ba42-2ccf317ce416)
+# FURIA Fan Chat
 
-# 🎯 Objetivo
-Criar uma experiência conversacional rica para que os fãs da FURIA possam acompanhar o time e interagir de maneira intuitiva e divertida.
-# 🚀 Funcionalidades
-##  💬 Chatbot Simulado
+A conversational web app for fans of FURIA's Counter-Strike team: ask a chatbot about upcoming matches, recent results, the roster and news, or browse the same information in dedicated tabs.
 
-Próximas partidas: Informações sobre jogos futuros
-Resultados recentes: Histórico de partidas anteriores
-Elenco e estatísticas: Dados sobre os jogadores
-Notícias atuais: Últimas atualizações sobre o time
+Built for FURIA Tech's technical challenge #1, *Conversational Experience*, as part of a software engineering selection process.
 
-##  🧭 Interface por Abas
+**[Live demo →](https://furia-fan-chat-pi.vercel.app)**
 
-Chat: Interação conversacional com o bot
-Partidas: Visualização de jogos passados e futuros
-Time: Perfil dos jogadores
-Notícias: Feed de novidades
+![FURIA Fan Chat: chat tab with quick replies, sidebar with next match, featured players and latest news](./docs/screenshot.png)
 
-## 📱 Layout Responsivo
+## Features
 
-Sidebar colapsável para visualização em dispositivos móveis
-Design adaptativo para diferentes tamanhos de tela
+- **Chatbot with quick replies.** Free-text questions are matched by keyword; suggested options cover next match, recent results, roster and news. Unknown questions get a fallback with the available topics.
+- **Four tabs.** Chat, Matches (past and upcoming), Team (player cards with role and rating) and News.
+- **Match details.** Per-match view with the map, player stats (K/D, ADR, rating) and a highlights link.
+- **Responsive layout.** A collapsible sidebar keeps the chat usable on small screens.
 
-# 🛠️ Tecnologias Utilizadas
+> Match, player and news data are mocked (`src/data/mockData.js`) to keep the challenge self-contained; `src/services` is the seam where a real data source such as HLTV would plug in.
 
-React + Vite: Framework e bundler para desenvolvimento front-end
-React Hooks: Gerenciamento de estado e efeitos
-Tailwind CSS 4.1.5: Framework CSS para estilização
-Mock HLTV: Dados simulados para partidas e estatísticas
+## Stack
 
+React 19 · Vite · Tailwind CSS 4 · React Router · Lucide icons
 
-🚀 Como Executar
+## Running locally
 
-Clone o repositório:
-
-bashgit clone https://github.com/gabrielmds0/FuriaFanChat.git
+```bash
+git clone https://github.com/gabrielmds0/FuriaFanChat.git
 cd FuriaFanChat
+npm install
+npm run dev        # http://localhost:5173
+```
 
-Instale as dependências:
+## Project structure
 
-bashnpm install
-# ou
-yarn
-
-Execute o projeto em modo de desenvolvimento:
-
-bashnpm run dev
-# ou
-yarn dev
-
-Acesse a aplicação no navegador:
-
-http://localhost:5173
-🔍 Principais Recursos
-Sistema de Chat Inteligente
-
-Respostas contextuais baseadas em palavras-chave
-Consulta a dados de partidas e estatísticas
-Interface amigável inspirada em apps de mensagens
-
-Informações de Partidas
-
-Visualização de partidas passadas e futuras
-Detalhes como mapas, placar e estatísticas
-Filtros por torneio e período
-
-Perfil de Jogadores
-
-Estatísticas individuais dos jogadores
-Histórico de desempenho
-Informações biográficas
-
-Feed de Notícias
-
-Últimas atualizações sobre a FURIA
-Integrações com conteúdo do time
-Notificações de eventos importantes
-
-📱 Responsividade
-O projeto foi desenvolvido seguindo princípios de design responsivo:
-
-Layout fluido que se adapta a diferentes tamanhos de tela
-Menus colapsáveis em telas menores
-Otimização de imagens para carregamento rápido
-Interface touch-friendly para dispositivos móveis
-
-🧠 Arquitetura
-
-Componentes Modulares: Cada parte da interface é um componente reutilizável
-Serviços Desacoplados: Lógica de negócio separada da interface
-Dados Mockados: Simulação de APIs para desenvolvimento rápido
-Estado Centralizado: Gerenciamento de estados com React Hooks
-
-📝 Licença
-Este projeto é parte de um desafio técnico e não possui licença específica.
+```
+src/
+├── components/   Chat, Sidebar, MatchCard, MatchDetails, PlayerCard, NewsCard, Header
+├── services/     chatService (bot replies), hltvService (dates, countdowns), matchDetailsService
+├── data/         mockData: matches, players, news and chatbot responses
+└── App.jsx       tab layout
+```
